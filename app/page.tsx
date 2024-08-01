@@ -203,7 +203,7 @@ export default function Home() {
 	);
 }
 
-function DumbbellIcon(props) {
+function DumbbellIcon(props: any) {
 	return (
 		<svg
 			{...props}
@@ -226,7 +226,7 @@ function DumbbellIcon(props) {
 	);
 }
 
-function MoveHorizontalIcon(props) {
+function MoveHorizontalIcon(props: any) {
 	return (
 		<svg
 			{...props}
@@ -247,7 +247,7 @@ function MoveHorizontalIcon(props) {
 	);
 }
 
-function XIcon(props) {
+function XIcon(props: any) {
 	return (
 		<svg
 			{...props}
