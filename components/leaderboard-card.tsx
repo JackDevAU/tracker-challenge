@@ -19,10 +19,10 @@ export default async function LeaderboardCard({
 	if (!member.id) return null;
 
 	const members = await db.query.tasks.findMany();
-	console.log(members);
+	// console.log(members);
 
 	const memberInfo = members?.filter((m) => m.memberId! === member.id!);
-	console.log(memberInfo);
+	// console.log(memberInfo);
 
 	const points: number = memberInfo?.reduce((acc, task) => {
 		return acc + Number(task.points);

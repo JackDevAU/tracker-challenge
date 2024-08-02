@@ -33,7 +33,7 @@ export default async function HomePage() {
 	const tasks = await db.query.tasks.findMany();
 
 	const memberTasks = tasks?.filter((m) => m.memberId! === isMember?.id);
-	console.log(memberTasks);
+	// console.log(memberTasks);
 
 	return (
 		<main className="w-full justify-center">
@@ -44,8 +44,8 @@ export default async function HomePage() {
 					</CardHeader>
 					<CardContent className="space-y-4">
 						<div>
-							{dateFormat(challenge?.startDate?.toString() || "")} -{" "}
-							{dateFormat(challenge?.endDate?.toString() || "")}
+							{dateFormat(challenge?.startDate?.toLocaleDateString() || "")} -{" "}
+							{dateFormat(challenge?.endDate?.toLocaleDateString() || "")}
 						</div>
 						{isMember ? (
 							<CheckInCard
