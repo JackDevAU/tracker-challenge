@@ -40,6 +40,8 @@ export default function TaskHistory({
 const TaskItem = ({ task }: { task: TaskInfo }) => (
 	<div className="flex items-baseline">
 		<h2 className="text-lg font-semibold">{task.points}</h2>
-		<p className="text-sm ml-2">Added on {dateFormat(task?.completedAt)}</p>
+		<p className="text-sm ml-2">
+			Added on {dateFormat(task?.completedAt?.toString() || "")}
+		</p>
 	</div>
 );

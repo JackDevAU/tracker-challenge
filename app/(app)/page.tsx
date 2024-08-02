@@ -16,6 +16,8 @@ export default async function HomePage() {
 
 	const challenge = await db.query.challenges.findFirst();
 
+	if (!userId) return null;
+
 	const user = await clerkClient.users.getUser(userId);
 	if (!user || !user.externalAccounts || user.externalAccounts.length === 0) {
 		throw new Error("User external accounts not found");
@@ -42,8 +44,8 @@ export default async function HomePage() {
 					</CardHeader>
 					<CardContent className="space-y-4">
 						<div>
-							{dateFormat(challenge?.startDate)} -{" "}
-							{dateFormat(challenge?.endDate)}
+							{dateFormat(challenge?.startDate?.toString() || "")} -{" "}
+							{dateFormat(challenge?.endDate?.toString() || "")}
 						</div>
 						{isMember ? (
 							<CheckInCard

@@ -3,6 +3,7 @@
  * @see https://v0.dev/t/pKC5m1FlnU6
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
+import type { Challenge, TaskInfo } from "@/app/(app)/check-in-card";
 import React from "react";
 
 const colors = {
@@ -14,7 +15,7 @@ const colors = {
 };
 type Colors = keyof typeof colors;
 
-const TrackDayTask = (color: Colors) => (
+const TrackDayTask = ({ color }: { color: Colors }) => (
 	<div className={`w-3 h-3 rounded-full ${color}`} />
 );
 
@@ -158,7 +159,7 @@ export default function PointsSquare({
 										: "No contribution"
 								}
 							>
-								<TrackDayTask color={color as Colors} />
+								<TrackDayTask color={color as unknown as Colors} />
 							</div>
 						);
 					})}
